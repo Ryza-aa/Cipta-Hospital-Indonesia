@@ -310,7 +310,7 @@ export function PatientDashboard({ activeTab = "dashboard", onTabChange, onAppoi
                       <Button
                         variant="outline"
                         size="sm"
-                        className="text-gray-600 hover:text-pink-600"
+                        className="text-gray-600 hover:text-pink-600 bg-transparent"
                         onClick={() => handleTabClick("appointments")}
                       >
                         Lihat Semua
@@ -378,19 +378,19 @@ export function PatientDashboard({ activeTab = "dashboard", onTabChange, onAppoi
                     </Button>
                     <Button
                       variant="outline"
-                      className="w-full justify-start h-12 hover:bg-gray-50"
+                      className="w-full justify-start h-12 hover:bg-gray-50 bg-transparent"
                       onClick={() => handleTabClick("medical-records")}
                     >
                       <FileText className="h-5 w-5 mr-3 text-gray-600" />
                       Lihat Rekam Medis
                     </Button>
-                    <Button variant="outline" className="w-full justify-start h-12 hover:bg-gray-50">
+                    <Button variant="outline" className="w-full justify-start h-12 hover:bg-gray-50 bg-transparent">
                       <Bell className="h-5 w-5 mr-3 text-gray-600" />
                       Pengingat Obat
                     </Button>
                     <Button
                       variant="outline"
-                      className="w-full justify-start h-12 hover:bg-red-50 text-red-600 border-red-200 hover:border-red-300"
+                      className="w-full justify-start h-12 hover:bg-red-50 text-red-600 border-red-200 hover:border-red-300 bg-transparent"
                       onClick={handleLogout}
                       disabled={loading}
                     >
@@ -420,11 +420,14 @@ export function PatientDashboard({ activeTab = "dashboard", onTabChange, onAppoi
       {/* Floating Emergency Button - Top Right */}
       <div className="fixed top-24 right-6 z-50">
         <Button
-          className="bg-gradient-to-r from-red-400 to-orange-400 hover:from-red-500 hover:to-orange-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-4 py-2"
+          className="bg-gradient-to-r from-red-400 via-red-500 to-pink-500 hover:from-red-500 hover:via-red-600 hover:to-pink-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-4 py-2 shadow-red-400/50 relative group"
           onClick={() => window.open("tel:1500-XXX", "_self")}
         >
-          <Ambulance className="h-4 w-4 mr-2" />
-          Darurat
+          <Ambulance className="h-4 w-4 mr-2 drop-shadow-lg animate-pulse" />
+          <span className="drop-shadow-lg">Darurat</span>
+          <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            24 Jam Siaga
+          </span>
         </Button>
       </div>
 
@@ -432,10 +435,10 @@ export function PatientDashboard({ activeTab = "dashboard", onTabChange, onAppoi
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           size="icon"
-          className="h-14 w-14 rounded-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          className="h-14 w-14 rounded-full bg-gradient-to-r from-pink-400 via-pink-500 to-red-400 hover:from-pink-500 hover:via-pink-600 hover:to-red-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 shadow-pink-400/50"
           onClick={handleAppointmentButtonClick}
         >
-          <Plus className="h-6 w-6" />
+          <Plus className="h-6 w-6 drop-shadow-lg animate-pulse" />
         </Button>
       </div>
     </div>

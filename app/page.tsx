@@ -501,8 +501,8 @@ export default function CiptaHospitalPage() {
         {/* Hero Section */}
         <section id="home" className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-br from-pink-50 to-rose-100">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_600px] items-center">
-              <div className="flex flex-col justify-center space-y-6 animate-in fade-in-50 slide-in-from-left-10 duration-700">
+            <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_600px] items-center relative">
+              <div className="flex flex-col justify-center space-y-6 animate-in fade-in-50 slide-in-from-left-10 duration-700 relative z-10">
                 <div className="space-y-4">
                   <p className="text-pink-500 font-medium text-sm animate-in fade-in-50 slide-in-from-left-10 duration-500 delay-200">
                     Rumah Sakit Terpercaya #1 di Indonesia
@@ -537,13 +537,13 @@ export default function CiptaHospitalPage() {
                   </Button>
                 </div>
               </div>
-              <div className="flex items-center justify-center animate-in fade-in-50 slide-in-from-right-10 duration-700 delay-300">
+              <div className="flex items-center justify-center animate-in fade-in-50 slide-in-from-right-10 duration-700 delay-300 absolute lg:relative inset-0 lg:inset-auto -z-10 lg:z-auto">
                 <Image
                   src="/hospital-building.png"
                   width="400"
                   height="400"
                   alt="Hospital Building Illustration"
-                  className="mx-auto aspect-square overflow-hidden object-contain hover:scale-110 transition-transform duration-500 cursor-pointer"
+                  className="mx-auto aspect-square overflow-hidden object-contain hover:scale-110 transition-transform duration-500 cursor-pointer opacity-20 md:opacity-40 lg:opacity-100 scale-150 md:scale-125 lg:scale-100"
                   onClick={() => scrollToSection("about")}
                 />
               </div>

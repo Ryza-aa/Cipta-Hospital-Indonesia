@@ -53,11 +53,11 @@ export function FloatingActionButton({ onAppointmentClick, showEmergencyPrimary 
       {showEmergencyPrimary && (
         <div className="mb-4">
           <Button
-            className="h-16 w-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 hover:scale-110 relative group"
+            className="h-16 w-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-red-400 via-red-500 to-pink-500 hover:from-red-500 hover:via-red-600 hover:to-pink-600 shadow-red-400/50 relative group"
             onClick={() => window.open("tel:1500-XXX", "_self")}
           >
-            <Ambulance className="h-6 w-6 text-white" />
-            <span className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-red-600 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <Ambulance className="h-6 w-6 text-white drop-shadow-lg animate-pulse" />
+            <span className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
               Darurat 24 Jam
             </span>
           </Button>
@@ -96,11 +96,15 @@ export function FloatingActionButton({ onAppointmentClick, showEmergencyPrimary 
         className={`h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
           isOpen
             ? "bg-gray-500 hover:bg-gray-600 rotate-45"
-            : "bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 hover:scale-110"
+            : "bg-gradient-to-r from-pink-400 via-pink-500 to-red-400 hover:from-pink-500 hover:via-pink-600 hover:to-red-500 shadow-pink-400/50"
         }`}
         onClick={handleMainAction}
       >
-        {isOpen ? <X className="h-6 w-6" /> : <Plus className="h-6 w-6" />}
+        {isOpen ? (
+          <X className="h-6 w-6 text-white drop-shadow-lg" />
+        ) : (
+          <Plus className="h-6 w-6 text-white drop-shadow-lg animate-pulse" />
+        )}
       </Button>
     </div>
   )
