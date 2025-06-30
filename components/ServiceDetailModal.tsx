@@ -8,7 +8,20 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, Clock, Star, Users, Award, Shield, Heart, Phone, MapPin, CheckCircle } from "lucide-react"
+import {
+  Calendar,
+  Clock,
+  Star,
+  Users,
+  Award,
+  Shield,
+  Phone,
+  MapPin,
+  CheckCircle,
+  Stethoscope,
+  GraduationCap,
+  Clock3,
+} from "lucide-react"
 
 interface ServiceDetailModalProps {
   isOpen: boolean
@@ -37,8 +50,39 @@ export function ServiceDetailModal({ isOpen, onClose, service, onBookAppointment
       description:
         "Pusat Jantung Terpadu dengan teknologi terdepan untuk diagnosis dan pengobatan penyakit kardiovaskular.",
       doctors: [
-        { name: "Dr. Ahmad Kardio, Sp.JP", experience: "15 tahun", specialty: "Intervensi Jantung" },
-        { name: "Dr. Sari Jantung, Sp.JP", experience: "12 tahun", specialty: "Elektrofisiologi" },
+        {
+          name: "Dr. Ahmad Rizki, Sp.JP",
+          experience: "18 tahun",
+          specialty: "Spesialis Jantung & Intervensi",
+          education: "FK UI, Fellowship Interventional Cardiology",
+          schedule: "Senin, Rabu, Jumat: 08:00-12:00",
+          image: "/doctor-male.png",
+          rating: 4.9,
+          patients: "2,500+",
+          achievements: ["Fellow American College of Cardiology", "Sertifikat Intervensi Kardiovaskular"],
+        },
+        {
+          name: "Dr. Sari Jantung, Sp.JP",
+          experience: "15 tahun",
+          specialty: "Elektrofisiologi & Aritmia",
+          education: "FK UNPAD, Fellowship Cardiac Electrophysiology",
+          schedule: "Selasa, Kamis, Sabtu: 08:00-12:00",
+          image: "/doctor-female.png",
+          rating: 4.8,
+          patients: "1,800+",
+          achievements: ["Certified Electrophysiologist", "Heart Rhythm Society Member"],
+        },
+        {
+          name: "Dr. Budi Kardio, Sp.JP",
+          experience: "12 tahun",
+          specialty: "Kardiologi Preventif",
+          education: "FK UGM, Fellowship Preventive Cardiology",
+          schedule: "Senin, Kamis: 13:00-17:00",
+          image: "/doctor-male.png",
+          rating: 4.7,
+          patients: "1,200+",
+          achievements: ["Preventive Cardiology Specialist", "Lipid Management Expert"],
+        },
       ],
       facilities: [
         "Cath Lab dengan teknologi terbaru",
@@ -61,8 +105,39 @@ export function ServiceDetailModal({ isOpen, onClose, service, onBookAppointment
       description:
         "Pusat Neurologi dengan fasilitas Stroke Center 24 jam dan teknologi MRI 3 Tesla untuk diagnosis akurat.",
       doctors: [
-        { name: "Dr. Budi Neuro, Sp.S", experience: "18 tahun", specialty: "Stroke & Vaskular" },
-        { name: "Dr. Nina Saraf, Sp.S", experience: "14 tahun", specialty: "Epilepsi & EEG" },
+        {
+          name: "Dr. Budi Neuro, Sp.S",
+          experience: "20 tahun",
+          specialty: "Stroke & Neurologi Vaskular",
+          education: "FK UI, Fellowship Stroke Medicine",
+          schedule: "Senin, Rabu, Jumat: 08:00-12:00",
+          image: "/doctor-male.png",
+          rating: 4.9,
+          patients: "3,000+",
+          achievements: ["Stroke Specialist Certification", "Indonesian Stroke Society Board Member"],
+        },
+        {
+          name: "Dr. Nina Saraf, Sp.S",
+          experience: "16 tahun",
+          specialty: "Epilepsi & Neurologi Pediatrik",
+          education: "FK UNAIR, Fellowship Pediatric Neurology",
+          schedule: "Selasa, Kamis, Sabtu: 08:00-12:00",
+          image: "/doctor-female.png",
+          rating: 4.8,
+          patients: "2,200+",
+          achievements: ["Pediatric Neurology Expert", "Epilepsy Surgery Certified"],
+        },
+        {
+          name: "Dr. Andi Kepala, Sp.S",
+          experience: "14 tahun",
+          specialty: "Neurologi Geriatri",
+          education: "FK UNHAS, Fellowship Geriatric Neurology",
+          schedule: "Senin, Kamis: 13:00-17:00",
+          image: "/doctor-male.png",
+          rating: 4.7,
+          patients: "1,500+",
+          achievements: ["Geriatric Neurology Specialist", "Dementia Care Expert"],
+        },
       ],
       facilities: [
         "MRI 3 Tesla dengan Spektroskopi",
@@ -84,8 +159,39 @@ export function ServiceDetailModal({ isOpen, onClose, service, onBookAppointment
     Pediatri: {
       description: "Layanan kesehatan anak terlengkap dengan NICU Level III dan tim dokter anak sub-spesialis.",
       doctors: [
-        { name: "Dr. Anisa Putri, Sp.A", experience: "10 tahun", specialty: "Neonatologi" },
-        { name: "Dr. Rina Anak, Sp.A", experience: "8 tahun", specialty: "Kardiologi Anak" },
+        {
+          name: "Dr. Anisa Putri, Sp.A",
+          experience: "12 tahun",
+          specialty: "Neonatologi & Perinatologi",
+          education: "FK UI, Fellowship Neonatology",
+          schedule: "Senin, Rabu, Jumat: 08:00-12:00",
+          image: "/doctor-female.png",
+          rating: 4.9,
+          patients: "2,800+",
+          achievements: ["NICU Level III Certified", "Neonatal Resuscitation Expert"],
+        },
+        {
+          name: "Dr. Rina Anak, Sp.A",
+          experience: "10 tahun",
+          specialty: "Kardiologi Anak",
+          education: "FK UNPAD, Fellowship Pediatric Cardiology",
+          schedule: "Selasa, Kamis, Sabtu: 08:00-12:00",
+          image: "/doctor-female.png",
+          rating: 4.8,
+          patients: "1,600+",
+          achievements: ["Pediatric Cardiology Specialist", "Congenital Heart Disease Expert"],
+        },
+        {
+          name: "Dr. Tono Bocah, Sp.A",
+          experience: "15 tahun",
+          specialty: "Tumbuh Kembang Anak",
+          education: "FK UGM, Fellowship Developmental Pediatrics",
+          schedule: "Senin, Kamis: 13:00-17:00",
+          image: "/doctor-male.png",
+          rating: 4.7,
+          patients: "2,000+",
+          achievements: ["Developmental Pediatrics Expert", "Early Intervention Specialist"],
+        },
       ],
       facilities: [
         "NICU Level III",
@@ -108,8 +214,39 @@ export function ServiceDetailModal({ isOpen, onClose, service, onBookAppointment
       description:
         "Pelayanan komprehensif untuk penyakit internal dengan fokus pada diabetes, hipertensi, dan penyakit metabolik.",
       doctors: [
-        { name: "Dr. Budi Santoso, Sp.PD", experience: "16 tahun", specialty: "Endokrinologi" },
-        { name: "Dr. Maya Dalam, Sp.PD", experience: "12 tahun", specialty: "Gastroenterologi" },
+        {
+          name: "Dr. Budi Santoso, Sp.PD",
+          experience: "18 tahun",
+          specialty: "Endokrinologi & Diabetes",
+          education: "FK UI, Fellowship Endocrinology",
+          schedule: "Senin, Rabu, Jumat: 08:00-12:00",
+          image: "/doctor-male.png",
+          rating: 4.9,
+          patients: "3,200+",
+          achievements: ["Diabetes Educator Certified", "Endocrine Society Member"],
+        },
+        {
+          name: "Dr. Maya Dalam, Sp.PD",
+          experience: "14 tahun",
+          specialty: "Gastroenterologi & Hepatologi",
+          education: "FK UNAIR, Fellowship Gastroenterology",
+          schedule: "Selasa, Kamis, Sabtu: 08:00-12:00",
+          image: "/doctor-female.png",
+          rating: 4.8,
+          patients: "2,400+",
+          achievements: ["Gastroenterology Specialist", "Hepatology Expert"],
+        },
+        {
+          name: "Dr. Sari Ginjal, Sp.PD",
+          experience: "16 tahun",
+          specialty: "Nefrologi & Hipertensi",
+          education: "FK UNPAD, Fellowship Nephrology",
+          schedule: "Senin, Kamis: 13:00-17:00",
+          image: "/doctor-female.png",
+          rating: 4.7,
+          patients: "1,800+",
+          achievements: ["Nephrology Specialist", "Hypertension Management Expert"],
+        },
       ],
       facilities: [
         "Diabetes Center",
@@ -131,8 +268,39 @@ export function ServiceDetailModal({ isOpen, onClose, service, onBookAppointment
     Ortopedi: {
       description: "Pusat Ortopedi dengan teknologi artroskopi dan penggantian sendi untuk masalah tulang dan sendi.",
       doctors: [
-        { name: "Dr. Joko Tulang, Sp.OT", experience: "14 tahun", specialty: "Spine Surgery" },
-        { name: "Dr. Siti Sendi, Sp.OT", experience: "11 tahun", specialty: "Sports Medicine" },
+        {
+          name: "Dr. Joko Tulang, Sp.OT",
+          experience: "16 tahun",
+          specialty: "Spine Surgery & Ortopedi Tulang Belakang",
+          education: "FK UI, Fellowship Spine Surgery",
+          schedule: "Senin, Rabu, Jumat: 08:00-12:00",
+          image: "/doctor-male.png",
+          rating: 4.9,
+          patients: "2,600+",
+          achievements: ["Spine Surgery Specialist", "Minimally Invasive Surgery Expert"],
+        },
+        {
+          name: "Dr. Siti Sendi, Sp.OT",
+          experience: "13 tahun",
+          specialty: "Sports Medicine & Artroskopi",
+          education: "FK UGM, Fellowship Sports Medicine",
+          schedule: "Selasa, Kamis, Sabtu: 08:00-12:00",
+          image: "/doctor-female.png",
+          rating: 4.8,
+          patients: "2,000+",
+          achievements: ["Sports Medicine Specialist", "Arthroscopy Expert"],
+        },
+        {
+          name: "Dr. Andi Patah, Sp.OT",
+          experience: "14 tahun",
+          specialty: "Trauma & Rekonstruksi",
+          education: "FK UNHAS, Fellowship Trauma Orthopedics",
+          schedule: "Senin, Kamis: 13:00-17:00",
+          image: "/doctor-male.png",
+          rating: 4.7,
+          patients: "1,700+",
+          achievements: ["Trauma Surgery Specialist", "Bone Reconstruction Expert"],
+        },
       ],
       facilities: [
         "Operating Theater Ortopedi",
@@ -154,8 +322,39 @@ export function ServiceDetailModal({ isOpen, onClose, service, onBookAppointment
     "Gawat Darurat": {
       description: "Layanan gawat darurat 24 jam dengan tim trauma center dan ambulans siaga untuk penanganan cepat.",
       doctors: [
-        { name: "Dr. Eko Darurat, Sp.EM", experience: "12 tahun", specialty: "Emergency Medicine" },
-        { name: "Dr. Lia Trauma, Sp.EM", experience: "9 tahun", specialty: "Trauma Surgery" },
+        {
+          name: "Dr. Eko Darurat, Sp.EM",
+          experience: "14 tahun",
+          specialty: "Emergency Medicine & Trauma",
+          education: "FK UI, Fellowship Emergency Medicine",
+          schedule: "Shift 24 Jam - On Call",
+          image: "/doctor-male.png",
+          rating: 4.9,
+          patients: "5,000+",
+          achievements: ["Emergency Medicine Specialist", "Trauma Team Leader"],
+        },
+        {
+          name: "Dr. Lia Trauma, Sp.EM",
+          experience: "11 tahun",
+          specialty: "Trauma Surgery & Critical Care",
+          education: "FK UNPAD, Fellowship Trauma Surgery",
+          schedule: "Shift 24 Jam - On Call",
+          image: "/doctor-female.png",
+          rating: 4.8,
+          patients: "3,800+",
+          achievements: ["Trauma Surgery Certified", "Critical Care Specialist"],
+        },
+        {
+          name: "Dr. Rudi Cepat, Sp.EM",
+          experience: "9 tahun",
+          specialty: "Emergency Pediatrics",
+          education: "FK UGM, Fellowship Pediatric Emergency",
+          schedule: "Shift 24 Jam - On Call",
+          image: "/doctor-male.png",
+          rating: 4.7,
+          patients: "2,500+",
+          achievements: ["Pediatric Emergency Specialist", "PALS Instructor"],
+        },
       ],
       facilities: [
         "Trauma Center Level I",
@@ -260,34 +459,126 @@ export function ServiceDetailModal({ isOpen, onClose, service, onBookAppointment
           </TabsContent>
 
           <TabsContent value="doctors" className="space-y-4">
-            <h3 className="text-lg font-semibold">Tim Dokter Spesialis</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex items-center gap-2 mb-6">
+              <Stethoscope className="h-6 w-6 text-pink-500" />
+              <h3 className="text-xl font-bold text-gray-900">Tim Dokter Spesialis</h3>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6">
               {currentService?.doctors.map((doctor, index) => (
-                <Card key={index} className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-4">
-                    <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center">
-                        <Heart className="h-6 w-6 text-pink-500" />
+                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-l-4 border-l-pink-500">
+                  <CardContent className="p-6">
+                    <div className="flex flex-col md:flex-row gap-4">
+                      {/* Doctor Image */}
+                      <div className="flex-shrink-0">
+                        <div className="relative">
+                          <img
+                            src={doctor.image || "/placeholder.svg"}
+                            alt={doctor.name}
+                            className="w-24 h-24 rounded-full object-cover border-4 border-pink-100"
+                          />
+                          <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full p-1">
+                            <div className="w-3 h-3 bg-white rounded-full"></div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900">{doctor.name}</h4>
-                        <p className="text-sm text-pink-600">{doctor.specialty}</p>
-                        <p className="text-xs text-gray-500">Pengalaman: {doctor.experience}</p>
-                        <Button
-                          size="sm"
-                          className="mt-2 bg-pink-500 hover:bg-pink-600"
-                          onClick={() => {
-                            onBookAppointment()
-                            onClose()
-                          }}
-                        >
-                          Buat Janji
-                        </Button>
+
+                      {/* Doctor Info */}
+                      <div className="flex-1 space-y-3">
+                        <div>
+                          <h4 className="text-lg font-bold text-gray-900">{doctor.name}</h4>
+                          <p className="text-pink-600 font-medium">{doctor.specialty}</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                          <div className="flex items-center gap-2">
+                            <GraduationCap className="h-4 w-4 text-blue-500" />
+                            <span className="text-gray-600">{doctor.education}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Clock3 className="h-4 w-4 text-green-500" />
+                            <span className="text-gray-600">Pengalaman: {doctor.experience}</span>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-4 text-sm">
+                          <div className="flex items-center gap-1">
+                            <Star className="h-4 w-4 text-yellow-500 fill-current" />
+                            <span className="font-medium">{doctor.rating}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Users className="h-4 w-4 text-blue-500" />
+                            <span className="text-gray-600">{doctor.patients} pasien</span>
+                          </div>
+                        </div>
+
+                        <div className="bg-gray-50 p-3 rounded-lg">
+                          <p className="text-sm font-medium text-gray-700 mb-1">Jadwal Praktik:</p>
+                          <p className="text-sm text-gray-600">{doctor.schedule}</p>
+                        </div>
+
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium text-gray-700">Sertifikasi & Pencapaian:</p>
+                          <div className="flex flex-wrap gap-2">
+                            {doctor.achievements.map((achievement, achIndex) => (
+                              <Badge key={achIndex} variant="secondary" className="text-xs">
+                                {achievement}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="flex gap-2 pt-2">
+                          <Button
+                            size="sm"
+                            className="bg-pink-500 hover:bg-pink-600 text-white"
+                            onClick={() => {
+                              onBookAppointment()
+                              onClose()
+                            }}
+                          >
+                            <Calendar className="h-4 w-4 mr-2" />
+                            Buat Janji
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="border-pink-500 text-pink-600 hover:bg-pink-50 bg-transparent"
+                          >
+                            <Phone className="h-4 w-4 mr-2" />
+                            Konsultasi
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               ))}
+            </div>
+
+            <div className="mt-8 p-6 bg-gradient-to-r from-pink-50 to-red-50 rounded-lg">
+              <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <Award className="h-5 w-5 text-pink-500" />
+                Mengapa Memilih Dokter Kami?
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
+                  <span>Dokter berpengalaman dengan sertifikasi internasional</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
+                  <span>Menggunakan teknologi medis terdepan</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
+                  <span>Pendekatan holistik dan patient-centered care</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
+                  <span>Konsultasi dan follow-up yang komprehensif</span>
+                </div>
+              </div>
             </div>
           </TabsContent>
 
@@ -340,7 +631,10 @@ export function ServiceDetailModal({ isOpen, onClose, service, onBookAppointment
                   <Phone className="h-8 w-8 text-green-500 mx-auto mb-2" />
                   <h4 className="font-semibold">Hubungi Langsung</h4>
                   <p className="text-sm text-gray-600 mb-3">Konsultasi via telepon</p>
-                  <Button variant="outline" className="w-full border-green-500 text-green-600 hover:bg-green-50">
+                  <Button
+                    variant="outline"
+                    className="w-full border-green-500 text-green-600 hover:bg-green-50 bg-transparent"
+                  >
                     <Phone className="h-4 w-4 mr-2" />
                     (021) 123-4567
                   </Button>
