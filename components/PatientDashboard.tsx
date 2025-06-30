@@ -418,27 +418,27 @@ export function PatientDashboard({ activeTab = "dashboard", onTabChange, onAppoi
       <div className="container mx-auto px-4 py-8">{renderContent()}</div>
 
       {/* Floating Emergency Button - Top Right */}
-      <div className="fixed top-24 right-6 z-50">
+      <div className="fixed top-20 right-4 sm:top-24 sm:right-6 z-50">
         <Button
-          className="bg-gradient-to-r from-red-400 via-red-500 to-pink-500 hover:from-red-500 hover:via-red-600 hover:to-pink-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-4 py-2 shadow-red-400/50 relative group"
+          className="bg-gradient-to-r from-red-400 via-red-500 to-pink-500 hover:from-red-500 hover:via-red-600 hover:to-pink-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-3 py-2 sm:px-4 sm:py-2 shadow-red-400/50 relative group text-sm sm:text-base"
           onClick={() => window.open("tel:1500-XXX", "_self")}
         >
-          <Ambulance className="h-4 w-4 mr-2 drop-shadow-lg animate-pulse" />
+          <Ambulance className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 drop-shadow-lg animate-pulse" />
           <span className="drop-shadow-lg">Darurat</span>
-          <span className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <span className="absolute -bottom-8 sm:-bottom-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs px-2 py-1 sm:px-3 sm:py-1 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             24 Jam Siaga
           </span>
         </Button>
       </div>
 
       {/* Floating Action Button - Bottom Right */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
         <Button
           size="icon"
-          className="h-14 w-14 rounded-full bg-gradient-to-r from-pink-400 via-pink-500 to-red-400 hover:from-pink-500 hover:via-pink-600 hover:to-red-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 shadow-pink-400/50"
+          className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-r from-pink-400 via-pink-500 to-red-400 hover:from-pink-500 hover:via-pink-600 hover:to-red-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 shadow-pink-400/50"
           onClick={handleAppointmentButtonClick}
         >
-          <Plus className="h-6 w-6 drop-shadow-lg animate-pulse" />
+          <Plus className="h-5 w-5 sm:h-6 sm:w-6 drop-shadow-lg animate-pulse" />
         </Button>
       </div>
     </div>
