@@ -1,6 +1,7 @@
 "use client"
-import Image from "next/image"
+
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -62,6 +63,20 @@ export default function HomePage() {
       patients: "2,500+",
       features: ["EKG Digital", "Kateterisasi Jantung", "Operasi Bypass"],
       price: "Mulai dari Rp 150.000",
+      doctors: [
+        {
+          name: "Dr. Ahmad Rizki, Sp.JP",
+          image: "/doctor-male.png",
+          experience: "18 tahun",
+          specialty: "Spesialis Jantung",
+        },
+        {
+          name: "Dr. Sari Jantung, Sp.JP",
+          image: "/doctor-female.png",
+          experience: "12 tahun",
+          specialty: "Elektrofisiologi",
+        },
+      ],
     },
     {
       id: 2,
@@ -73,6 +88,20 @@ export default function HomePage() {
       patients: "1,800+",
       features: ["MRI Brain", "EEG", "Terapi Stroke"],
       price: "Mulai dari Rp 200.000",
+      doctors: [
+        {
+          name: "Dr. Budi Neuro, Sp.S",
+          image: "/doctor-male.png",
+          experience: "18 tahun",
+          specialty: "Stroke & Vaskular",
+        },
+        {
+          name: "Dr. Nina Saraf, Sp.S",
+          image: "/doctor-female.png",
+          experience: "14 tahun",
+          specialty: "Epilepsi & EEG",
+        },
+      ],
     },
     {
       id: 3,
@@ -84,6 +113,20 @@ export default function HomePage() {
       patients: "3,200+",
       features: ["Imunisasi Lengkap", "Tumbuh Kembang", "Gizi Anak"],
       price: "Mulai dari Rp 100.000",
+      doctors: [
+        {
+          name: "Dr. Anisa Putri, Sp.A",
+          image: "/doctor-female.png",
+          experience: "10 tahun",
+          specialty: "Neonatologi",
+        },
+        {
+          name: "Dr. Rina Anak, Sp.A",
+          image: "/doctor-female.png",
+          experience: "8 tahun",
+          specialty: "Kardiologi Anak",
+        },
+      ],
     },
     {
       id: 4,
@@ -95,6 +138,20 @@ export default function HomePage() {
       patients: "2,100+",
       features: ["Diabetes Care", "Hipertensi", "Endoskopi"],
       price: "Mulai dari Rp 120.000",
+      doctors: [
+        {
+          name: "Dr. Budi Santoso, Sp.PD",
+          image: "/doctor-male.png",
+          experience: "16 tahun",
+          specialty: "Endokrinologi",
+        },
+        {
+          name: "Dr. Maya Dalam, Sp.PD",
+          image: "/doctor-female.png",
+          experience: "12 tahun",
+          specialty: "Gastroenterologi",
+        },
+      ],
     },
     {
       id: 5,
@@ -106,6 +163,20 @@ export default function HomePage() {
       patients: "1,900+",
       features: ["Arthroscopy", "Joint Replacement", "Fisioterapi"],
       price: "Mulai dari Rp 180.000",
+      doctors: [
+        {
+          name: "Dr. Joko Tulang, Sp.OT",
+          image: "/doctor-male.png",
+          experience: "14 tahun",
+          specialty: "Spine Surgery",
+        },
+        {
+          name: "Dr. Siti Sendi, Sp.OT",
+          image: "/doctor-female.png",
+          experience: "11 tahun",
+          specialty: "Sports Medicine",
+        },
+      ],
     },
     {
       id: 6,
@@ -117,6 +188,20 @@ export default function HomePage() {
       patients: "5,000+",
       features: ["24/7 Service", "Ambulance", "ICU"],
       price: "Sesuai Tindakan",
+      doctors: [
+        {
+          name: "Dr. Eko Darurat, Sp.EM",
+          image: "/doctor-male.png",
+          experience: "12 tahun",
+          specialty: "Emergency Medicine",
+        },
+        {
+          name: "Dr. Lia Trauma, Sp.EM",
+          image: "/doctor-female.png",
+          experience: "9 tahun",
+          specialty: "Trauma Surgery",
+        },
+      ],
     },
   ]
 
@@ -253,9 +338,6 @@ export default function HomePage() {
           onTabChange={setDashboardTab}
           onAppointmentClick={() => setIsAppointmentModalOpen(true)}
         />
-
-        {/* Floating Action Button - Only Plus for logged in users */}
-        <FloatingActionButton onAppointmentClick={() => setIsAppointmentModalOpen(true)} showEmergencyPrimary={false} />
 
         <AppointmentModal isOpen={isAppointmentModalOpen} onClose={() => setIsAppointmentModalOpen(false)} />
       </div>
@@ -412,14 +494,15 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative">
+            {/* Hospital Image - Hidden on Mobile */}
+            <div className="relative hidden lg:block">
               <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-red-400 rounded-3xl transform rotate-6 opacity-20"></div>
               <Image
                 src="/hospital-building.png"
                 alt="Cipta Hospital Building"
                 width={600}
                 height={400}
-                className="relative z-10 rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer opacity-20 md:opacity-40 lg:opacity-100 sm:absolute sm:inset-0 sm:z-[-10] sm:scale-150 md:scale-125 lg:scale-100 lg:relative lg:z-10"
+                className="relative z-10 rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer"
               />
             </div>
           </div>
@@ -556,6 +639,32 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-2xl font-bold mb-3">{service.name}</h3>
                   <p className="text-white/90 mb-4 line-clamp-2">{service.description}</p>
+
+                  {/* Doctors Section */}
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold mb-2 text-white/90">Tim Dokter:</h4>
+                    <div className="flex -space-x-2 mb-2">
+                      {service.doctors.map((doctor, index) => (
+                        <div key={index} className="relative">
+                          <Image
+                            src={doctor.image || "/placeholder.svg"}
+                            alt={doctor.name}
+                            width={32}
+                            height={32}
+                            className="w-8 h-8 rounded-full border-2 border-white/50 bg-white/20"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-xs text-white/80">
+                      {service.doctors.map((doctor, index) => (
+                        <div key={index} className="truncate">
+                          {doctor.name} - {doctor.experience}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                   <div className="space-y-2 mb-6">
                     <div className="flex items-center gap-2 text-sm">
                       <Users className="h-4 w-4" />
@@ -730,10 +839,10 @@ export default function HomePage() {
                   <Button
                     size="lg"
                     className="w-full bg-red-500 hover:bg-red-600 text-white"
-                    onClick={() => window.open("tel:1500119", "_self")}
+                    onClick={() => window.open("tel:1500-XXX", "_self")}
                   >
                     <Ambulance className="mr-2 h-5 w-5" />
-                    Hubungi Darurat: 1500-119
+                    Hubungi Darurat: 1500-XXX
                   </Button>
                 </CardContent>
               </Card>
@@ -798,6 +907,7 @@ export default function HomePage() {
               <p className="text-gray-400 mb-4">
                 Memberikan pelayanan kesehatan terbaik dengan teknologi modern dan tim medis berpengalaman.
               </p>
+              <div className="flex space-x-4">{/* Social media icons would go here */}</div>
             </div>
 
             <div>
@@ -869,7 +979,7 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* Floating Action Button - Show Emergency + Plus on Homepage */}
+      {/* Floating Action Button */}
       <FloatingActionButton onAppointmentClick={() => setIsAppointmentModalOpen(true)} showEmergencyPrimary={true} />
 
       {/* Modals */}
