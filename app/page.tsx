@@ -53,7 +53,7 @@ export default function CiptaHospitalPage() {
   // Auto-detect scroll position for active navigation
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "services", "doctors", "about", "contact"]
+      const sections = ["home", "about", "services", "doctors", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -206,7 +206,7 @@ export default function CiptaHospitalPage() {
           <div className="ml-8 hidden lg:flex gap-3">
             <Button
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-pink-500 transition-all"
+              className="border-white text-white hover:bg-white hover:text-pink-500 transition-all bg-transparent"
             >
               <User className="w-4 h-4 mr-2" />
               {user?.full_name || user?.email?.split("@")[0] || "Demo User"}
@@ -274,14 +274,14 @@ export default function CiptaHospitalPage() {
                 Profil
               </button>
               <div className="flex gap-2 pt-4 border-t">
-                <Button variant="outline" size="sm" className="flex-1">
+                <Button variant="outline" size="sm" className="flex-1 bg-transparent">
                   <User className="w-4 h-4 mr-2" />
                   {user?.full_name || "Demo User"}
                 </Button>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="text-red-600 border-red-200 hover:bg-red-50"
+                  className="text-red-600 border-red-200 hover:bg-red-50 bg-transparent"
                   onClick={handleLogout}
                   disabled={logoutLoading}
                 >
@@ -310,70 +310,82 @@ export default function CiptaHospitalPage() {
 
   const services = [
     {
-      icon: <HeartPulse className="h-8 w-8 text-pink-500" />,
+      icon: <HeartPulse className="h-8 w-8 text-white" />,
       title: "Kardiologi",
-      titleColor: "text-gray-900",
+      titleColor: "text-white",
       desc: "Pelayanan jantung dan pembuluh darah dengan teknologi terdepan",
       rating: 4.9,
       features: ["Kateterisasi Jantung", "Operasi Bypass", "Echocardiography 4D"],
       patients: "2,500+",
       availability: "Tersedia",
-      bgColor: "bg-pink-50",
+      bgColor: "bg-gradient-to-br from-red-500 to-pink-600",
+      cardBg: "bg-gradient-to-br from-red-500 to-pink-600",
+      hoverBg: "hover:from-red-600 hover:to-pink-700",
     },
     {
-      icon: <Brain className="h-8 w-8 text-red-500" />,
+      icon: <Brain className="h-8 w-8 text-white" />,
       title: "Neurologi",
-      titleColor: "text-red-500",
+      titleColor: "text-white",
       desc: "Diagnosis dan pengobatan gangguan sistem saraf",
       rating: 4.8,
       features: ["Stroke Center 24 Jam", "Operasi Tumor Otak", "MRI 3 Tesla"],
       patients: "1,800+",
       availability: "Tersedia",
-      bgColor: "bg-red-50",
+      bgColor: "bg-gradient-to-br from-purple-500 to-indigo-600",
+      cardBg: "bg-gradient-to-br from-purple-500 to-indigo-600",
+      hoverBg: "hover:from-purple-600 hover:to-indigo-700",
     },
     {
-      icon: <Baby className="h-8 w-8 text-pink-500" />,
+      icon: <Baby className="h-8 w-8 text-white" />,
       title: "Pediatri",
-      titleColor: "text-gray-900",
+      titleColor: "text-white",
       desc: "Perawatan kesehatan khusus untuk bayi dan anak-anak",
       rating: 4.9,
       features: ["NICU Level III", "Pediatric ICU", "Vaksinasi Lengkap"],
       patients: "3,200+",
       availability: "Tersedia",
-      bgColor: "bg-pink-50",
+      bgColor: "bg-gradient-to-br from-blue-500 to-cyan-600",
+      cardBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+      hoverBg: "hover:from-blue-600 hover:to-cyan-700",
     },
     {
-      icon: <Stethoscope className="h-8 w-8 text-blue-500" />,
+      icon: <Stethoscope className="h-8 w-8 text-white" />,
       title: "Penyakit Dalam",
-      titleColor: "text-gray-900",
+      titleColor: "text-white",
       desc: "Diagnosis dan penanganan penyakit internal komprehensif",
       rating: 4.7,
       features: ["Endoskopi", "Diabetes Center", "Hemodialisis"],
       patients: "2,100+",
       availability: "Tersedia",
-      bgColor: "bg-blue-50",
+      bgColor: "bg-gradient-to-br from-green-500 to-emerald-600",
+      cardBg: "bg-gradient-to-br from-green-500 to-emerald-600",
+      hoverBg: "hover:from-green-600 hover:to-emerald-700",
     },
     {
-      icon: <Bone className="h-8 w-8 text-green-500" />,
+      icon: <Bone className="h-8 w-8 text-white" />,
       title: "Ortopedi",
-      titleColor: "text-gray-900",
+      titleColor: "text-white",
       desc: "Perawatan tulang, sendi, dan sistem muskuloskeletal",
       rating: 4.8,
       features: ["Artroskopi", "Penggantian Sendi", "Fisioterapi"],
       patients: "1,900+",
       availability: "Tersedia",
-      bgColor: "bg-green-50",
+      bgColor: "bg-gradient-to-br from-orange-500 to-amber-600",
+      cardBg: "bg-gradient-to-br from-orange-500 to-amber-600",
+      hoverBg: "hover:from-orange-600 hover:to-amber-700",
     },
     {
-      icon: <HeartPulse className="h-8 w-8 text-orange-500" />,
+      icon: <HeartPulse className="h-8 w-8 text-white" />,
       title: "Gawat Darurat",
-      titleColor: "text-orange-500",
+      titleColor: "text-white",
       desc: "Layanan darurat 24 jam dengan tim medis siaga",
       rating: 4.9,
       features: ["Trauma Center", "Ambulans 24 Jam", "ICU Darurat"],
       patients: "5,000+",
       availability: "24 Jam",
-      bgColor: "bg-orange-50",
+      bgColor: "bg-gradient-to-br from-red-600 to-rose-700",
+      cardBg: "bg-gradient-to-br from-red-600 to-rose-700",
+      hoverBg: "hover:from-red-700 hover:to-rose-800",
     },
   ]
 
@@ -428,7 +440,7 @@ export default function CiptaHospitalPage() {
         <div className="ml-8 hidden lg:flex gap-3">
           <Button
             variant="outline"
-            className="border-pink-500 text-pink-500 hover:bg-pink-50 hover:scale-105 transition-all"
+            className="border-pink-500 text-pink-500 hover:bg-pink-50 hover:scale-105 transition-all bg-transparent"
             onClick={() => handleAuthClick("register")}
           >
             <User className="w-4 h-4 mr-2" />
@@ -517,7 +529,7 @@ export default function CiptaHospitalPage() {
                   </Button>
                   <Button
                     variant="outline"
-                    className="border-pink-500 text-pink-500 hover:bg-pink-50 hover:scale-105 h-12 px-6 transition-all duration-300"
+                    className="border-pink-500 text-pink-500 hover:bg-pink-50 hover:scale-105 h-12 px-6 transition-all duration-300 bg-transparent"
                     onClick={() => scrollToSection("contact")}
                   >
                     <Phone className="w-4 h-4 mr-2" />
@@ -539,19 +551,55 @@ export default function CiptaHospitalPage() {
           </div>
         </section>
 
+        {/* About Us Section */}
+        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+          <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
+            <div className="space-y-4 animate-in fade-in-50 slide-in-from-left-10 duration-700">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-gray-900">
+                Tentang Cipta Hospital Indonesia
+              </h2>
+              <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Sejak didirikan, Cipta Hospital telah menjadi pilar kesehatan bagi masyarakat. Kami menggabungkan
+                teknologi medis terkini dengan perawatan yang penuh empati untuk memastikan hasil terbaik bagi pasien.
+              </p>
+              <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Visi kami adalah menjadi rumah sakit rujukan terdepan yang dikenal karena keunggulan klinis dan
+                pelayanan pasien yang luar biasa.
+              </p>
+              <Button
+                className="bg-pink-500 text-white hover:bg-pink-600 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                onClick={() => scrollToSection("contact")}
+              >
+                Hubungi Kami
+              </Button>
+            </div>
+            <div className="flex items-center justify-center animate-in fade-in-50 slide-in-from-right-10 duration-700 delay-300">
+              <Image
+                src="/service-motto.png"
+                width="550"
+                height="400"
+                alt="Senyuman Sehat, Kehidupan Bahagia"
+                className="mx-auto aspect-video overflow-hidden rounded-xl object-contain hover:scale-105 transition-transform duration-500 cursor-pointer shadow-lg hover:shadow-xl"
+                onClick={() => scrollToSection("services")}
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Services Section */}
-        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-gray-50 to-blue-50">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-pink-100 px-3 py-1 text-sm text-pink-600 animate-in fade-in-50 slide-in-from-top-5 duration-500">
+                <div className="inline-block rounded-lg bg-gradient-to-r from-pink-500 to-red-500 px-4 py-2 text-sm text-white font-medium animate-in fade-in-50 slide-in-from-top-5 duration-500 shadow-lg">
                   Layanan Unggulan
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-900 animate-in fade-in-50 slide-in-from-top-5 duration-700 delay-200">
                   Layanan Medis Komprehensif
                 </h2>
-                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed animate-in fade-in-50 slide-in-from-top-5 duration-700 delay-400">
-                  Kami menyediakan berbagai layanan spesialis untuk memenuhi semua kebutuhan kesehatan Anda.
+                <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed animate-in fade-in-50 slide-in-from-top-5 duration-700 delay-400">
+                  Kami menyediakan berbagai layanan spesialis dengan teknologi terdepan untuk memenuhi semua kebutuhan
+                  kesehatan Anda.
                 </p>
               </div>
             </div>
@@ -559,32 +607,35 @@ export default function CiptaHospitalPage() {
               {services.map((service, index) => (
                 <Card
                   key={index}
-                  className="transform transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer border border-gray-200 relative overflow-hidden group animate-in fade-in-50 slide-in-from-bottom-10"
+                  className={`transform transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer border-0 relative overflow-hidden group animate-in fade-in-50 slide-in-from-bottom-10 ${service.cardBg} ${service.hoverBg} text-white`}
                   style={{ animationDelay: `${index * 100}ms` }}
                   onClick={() => handleServiceClick(service)}
                   data-service={index}
                 >
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 relative">
+                    {/* Decorative Background Pattern */}
+                    <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
+                      <div className="w-full h-full bg-white rounded-full transform translate-x-8 -translate-y-8"></div>
+                    </div>
+
                     {/* Rating */}
-                    <div className="absolute top-4 right-4 flex items-center gap-1 bg-yellow-100 px-2 py-1 rounded-full group-hover:bg-yellow-200 transition-colors">
-                      <span className="text-yellow-500 text-sm">★</span>
-                      <span className="text-sm font-medium text-gray-700">{service.rating}</span>
+                    <div className="absolute top-4 right-4 flex items-center gap-1 bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full group-hover:bg-white/30 transition-colors">
+                      <span className="text-yellow-300 text-sm">★</span>
+                      <span className="text-sm font-medium text-white">{service.rating}</span>
                     </div>
 
                     {/* Icon */}
-                    <div
-                      className={`w-16 h-16 ${service.bgColor} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                    >
+                    <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300">
                       {service.icon}
                     </div>
 
                     {/* Title and Description */}
                     <h3
-                      className={`text-xl font-bold mb-2 ${service.titleColor} group-hover:text-pink-500 transition-colors`}
+                      className={`text-xl font-bold mb-2 ${service.titleColor} group-hover:text-white transition-colors`}
                     >
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">{service.desc}</p>
+                    <p className="text-white/90 text-sm mb-4 leading-relaxed">{service.desc}</p>
 
                     {/* Features */}
                     <div className="space-y-2 mb-6">
@@ -594,21 +645,21 @@ export default function CiptaHospitalPage() {
                           className="flex items-center gap-2 group-hover:translate-x-1 transition-transform duration-300"
                           style={{ transitionDelay: `${featureIndex * 50}ms` }}
                         >
-                          <div className="w-4 h-4 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-200 transition-colors">
-                            <span className="text-green-600 text-xs">✓</span>
+                          <div className="w-4 h-4 bg-white/30 rounded-full flex items-center justify-center group-hover:bg-white/40 transition-colors">
+                            <span className="text-white text-xs font-bold">✓</span>
                           </div>
-                          <span className="text-sm text-gray-600">{feature}</span>
+                          <span className="text-sm text-white/90">{feature}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* Stats */}
-                    <div className="flex items-center justify-between mb-4 text-sm text-gray-500">
-                      <div className="flex items-center gap-1 hover:text-pink-500 transition-colors">
+                    <div className="flex items-center justify-between mb-4 text-sm text-white/80">
+                      <div className="flex items-center gap-1 hover:text-white transition-colors">
                         <User className="w-4 h-4" />
                         <span>{service.patients} pasien</span>
                       </div>
-                      <div className="flex items-center gap-1 hover:text-pink-500 transition-colors">
+                      <div className="flex items-center gap-1 hover:text-white transition-colors">
                         <Clock className="w-4 h-4" />
                         <span>{service.availability}</span>
                       </div>
@@ -618,7 +669,7 @@ export default function CiptaHospitalPage() {
                     <div className="flex gap-2">
                       <Button
                         variant="outline"
-                        className="flex-1 border-red-500 text-red-500 hover:bg-red-50 hover:scale-105 text-sm transition-all duration-300"
+                        className="flex-1 border-white/30 text-white hover:bg-white hover:text-gray-900 hover:scale-105 text-sm transition-all duration-300 bg-transparent backdrop-blur-sm"
                         onClick={(e) => {
                           e.stopPropagation()
                           handleServiceClick(service)
@@ -629,7 +680,7 @@ export default function CiptaHospitalPage() {
                       </Button>
                       <Button
                         size="icon"
-                        className="bg-red-500 hover:bg-red-600 hover:scale-110 text-white transition-all duration-300"
+                        className="bg-white/20 hover:bg-white hover:text-gray-900 hover:scale-110 text-white transition-all duration-300 backdrop-blur-sm border-0"
                         onClick={(e) => {
                           e.stopPropagation()
                           handleAppointmentClick()
@@ -686,7 +737,7 @@ export default function CiptaHospitalPage() {
                     </div>
                     <Button
                       variant="outline"
-                      className="border-pink-500 text-pink-500 hover:bg-pink-50 hover:text-pink-600 hover:scale-105 transition-all duration-300 group-hover:shadow-md"
+                      className="border-pink-500 text-pink-500 hover:bg-pink-50 hover:text-pink-600 hover:scale-105 transition-all duration-300 group-hover:shadow-md bg-transparent"
                       onClick={(e) => {
                         e.stopPropagation()
                         handleDoctorClick(doctor)
@@ -697,41 +748,6 @@ export default function CiptaHospitalPage() {
                   </CardContent>
                 </Card>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* About Us Section */}
-        <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-white">
-          <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
-            <div className="space-y-4 animate-in fade-in-50 slide-in-from-left-10 duration-700">
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-gray-900">
-                Tentang Cipta Hospital Indonesia
-              </h2>
-              <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Sejak didirikan, Cipta Hospital telah menjadi pilar kesehatan bagi masyarakat. Kami menggabungkan
-                teknologi medis terkini dengan perawatan yang penuh empati untuk memastikan hasil terbaik bagi pasien.
-              </p>
-              <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Visi kami adalah menjadi rumah sakit rujukan terdepan yang dikenal karena keunggulan klinis dan
-                pelayanan pasien yang luar biasa.
-              </p>
-              <Button
-                className="bg-pink-500 text-white hover:bg-pink-600 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                onClick={() => scrollToSection("contact")}
-              >
-                Hubungi Kami
-              </Button>
-            </div>
-            <div className="flex items-center justify-center animate-in fade-in-50 slide-in-from-right-10 duration-700 delay-300">
-              <Image
-                src="/service-motto.png"
-                width="550"
-                height="400"
-                alt="Senyuman Sehat, Kehidupan Bahagia"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-contain hover:scale-105 transition-transform duration-500 cursor-pointer shadow-lg hover:shadow-xl"
-                onClick={() => scrollToSection("services")}
-              />
             </div>
           </div>
         </section>
